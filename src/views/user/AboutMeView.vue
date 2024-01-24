@@ -24,6 +24,7 @@
             action="http://localhost:8101/api/file/upload"
             @success="uploadSuccess"
             with-credentials
+            limit="1"
             :data="uploadFileRequest"
           />
         </a-form-item>
@@ -134,11 +135,5 @@ onMounted(() => {
   text-align: center;
   width: 40%;
   margin: 0 auto;
-}
-
-.wrapper {
-  width: 400px;
-  padding: 20px;
-  border-radius: 4px;
 }
 </style>

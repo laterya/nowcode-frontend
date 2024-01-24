@@ -41,7 +41,6 @@ import {
 import { onMounted, ref } from "vue";
 import message from "@arco-design/web-vue/es/message";
 import { useRoute, useRouter } from "vue-router";
-import { FileItem } from "@arco-design/web-vue";
 
 const router = useRouter();
 const route = useRoute();

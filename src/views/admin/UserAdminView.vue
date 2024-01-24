@@ -16,7 +16,6 @@
 import { onMounted, ref } from "vue";
 import {
   BaseResponse_boolean_,
-  BaseResponse_Page_User_,
   UserControllerService,
 } from "../../../generated";
 import message from "@arco-design/web-vue/es/message";

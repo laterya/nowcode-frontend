@@ -44,17 +44,13 @@ const form = reactive({
 const router = useRouter();
 const store = useUserStore();
 
-/**
- * 提交表单
- * @param data
- */
 const handleSubmit = async () => {
   const res = await UserControllerService.userLoginUsingPost(form);
   // 登录成功，跳转到主页
   if (res.code === 0) {
     // 将用户信息存储到 store 中
     store.setLoginUser(res.data);
-    router.push({
+    await router.push({
       path: "/",
       replace: true,
     });

@@ -36,14 +36,8 @@
 </template>
 
 <script setup lang="ts">
-import { withDefaults, defineProps, reactive, ref } from "vue";
-import {
-  BaseResponse_boolean_,
-  PostControllerService,
-  PostThumbControllerService,
-  PostVO,
-} from "../../generated";
-import message from "@arco-design/web-vue/es/message";
+import { withDefaults, defineProps } from "vue";
+import { PostVO } from "../../generated";
 
 interface Props {
   postList: PostVO[];

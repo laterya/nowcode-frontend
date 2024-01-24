@@ -67,7 +67,7 @@ const commitClick = () => {
     title: title.value,
     content: content.value,
     tags: tags.value,
-    cover: coverUrl.value,
+    // cover: coverUrl.value,
   }).then((res) => {
     if (res.code === 0) {
       message.success("创建成功");
