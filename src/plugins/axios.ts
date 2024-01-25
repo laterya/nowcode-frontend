@@ -1,7 +1,12 @@
 // 添加请求拦截器
 import axios from "axios";
 
-axios.interceptors.request.use(
+export const myAxios = axios.create({
+  baseURL: "http://localhost:8101/api",
+  timeout: 1000,
+  withCredentials: true,
+});
+myAxios.interceptors.request.use(
   function (config) {
     // 在发送请求之前做些什么
     return config;
@@ -13,7 +18,7 @@ axios.interceptors.request.use(
 );
 
 // 添加响应拦截器
-axios.interceptors.response.use(
+myAxios.interceptors.response.use(
   function (response) {
     console.log("响应结果  ", response);
     // 2xx 范围内的状态码都会触发该函数。

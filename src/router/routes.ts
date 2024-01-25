@@ -10,6 +10,7 @@ import PostAddView from "@/views/post/PostAddView.vue";
 import PostUpdateView from "@/views/post/PostUpdateView.vue";
 import UserAdminView from "@/views/admin/UserAdminView.vue";
 import ChatAddView from "@/views/chat/ChatAddView.vue";
+import MyTest from "@/views/chat/MyTest.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -36,6 +37,11 @@ export const routes: Array<RouteRecordRaw> = [
     path: "/",
     name: "主页",
     component: HomeView,
+  },
+  {
+    path: "/test",
+    name: "测试",
+    component: MyTest,
   },
   {
     path: "/chat",
