@@ -10,7 +10,11 @@
             <a-input v-model="form.name" placeholder="输入图表名称" />
           </a-form-item>
           <a-form-item field="chartType" label="图表类型">
-            <a-input v-model="form.chartType" placeholder="输入图表类型" />
+            <a-select placeholder="Please select ..." v-model="form.chartType">
+              <a-option>曲线图</a-option>
+              <a-option>柱状图</a-option>
+              <a-option>雷达图</a-option>
+            </a-select>
           </a-form-item>
           <a-form-item field="goal" label="分析目标">
             <a-input v-model="form.goal" placeholder="输入分析目标" />

@@ -86,6 +86,7 @@ chartEditRequest: ChartEditRequest,
     }
 
     /**
+     * @deprecated
      * genChartByAi
      * @param file file
      * @param chartType 
@@ -121,6 +122,7 @@ name?: string,
     }
 
     /**
+     * @deprecated
      * genChartByAiAsync
      * @param file file
      * @param chartType 

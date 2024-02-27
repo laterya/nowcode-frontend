@@ -8,9 +8,13 @@ import UserRegisterView from "@/views/user/UserRegisterView.vue";
 import PostListView from "@/views/post/PostListView.vue";
 import PostAddView from "@/views/post/PostAddView.vue";
 import PostUpdateView from "@/views/post/PostUpdateView.vue";
-import UserAdminView from "@/views/admin/UserAdminView.vue";
-import ChatAddView from "@/views/chat/ChatAddView.vue";
-import MyTest from "@/views/chat/MyTest.vue";
+import ChatGenView from "@/views/chat/ChatGenView.vue";
+import AddChartView from "@/views/chat/AddChartView.vue";
+import MyChartsView from "@/views/chat/MyChartsView.vue";
+import UpdateInterfaceInfoView from "@/views/interfaces/UpdateInterfaceInfoView.vue";
+import InterfaceDetailView from "@/views/interfaces/InterfaceDetailView.vue";
+import InterfaceInfoView from "@/views/interfaces/InterfaceInfoView.vue";
+import AdminView from "@/views/admin/AdminView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -39,14 +43,38 @@ export const routes: Array<RouteRecordRaw> = [
     component: HomeView,
   },
   {
-    path: "/test",
-    name: "测试",
-    component: MyTest,
+    path: "/chat",
+    name: "智能分析(同步)",
+    component: ChatGenView,
   },
   {
-    path: "/chat",
-    name: "智能分析",
-    component: ChatAddView,
+    path: "/chat/async",
+    name: "智能分析(异步)",
+    component: AddChartView,
+  },
+  {
+    path: "/myChart",
+    name: "我的图表",
+    component: MyChartsView,
+  },
+  {
+    path: "/interfaceInfo",
+    name: "在线接口",
+    component: InterfaceInfoView,
+  },
+  {
+    path: "/interfaceInfoDetail",
+    component: InterfaceDetailView,
+    meta: {
+      hideInMenu: true,
+    },
+  },
+  {
+    path: "/updateInterfaceInfo",
+    component: UpdateInterfaceInfoView,
+    meta: {
+      hideInMenu: true,
+    },
   },
   {
     path: "/list",
@@ -77,7 +105,7 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/admin",
     name: "管理员界面",
-    component: UserAdminView,
+    component: AdminView,
     meta: {
       access: ACCESS_ENUM.ADMIN,
     },
