@@ -46,6 +46,9 @@ export const routes: Array<RouteRecordRaw> = [
     path: "/chat",
     name: "智能分析(同步)",
     component: ChatGenView,
+    meta: {
+      hideInMenu: true,
+    },
   },
   {
     path: "/chat/async",
@@ -77,45 +80,11 @@ export const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: "/list",
-    name: "论坛",
-    component: PostListView,
-  },
-  {
-    path: "/list/:category",
-    component: PostListView,
-    meta: {
-      hideInMenu: true,
-    },
-  },
-  {
-    path: "/addPost",
-    component: PostAddView,
-    meta: {
-      hideInMenu: true,
-    },
-  },
-  {
-    path: "/updatePost",
-    component: PostUpdateView,
-    meta: {
-      hideInMenu: true,
-    },
-  },
-  {
     path: "/admin",
     name: "管理员界面",
     component: AdminView,
     meta: {
       access: ACCESS_ENUM.ADMIN,
-    },
-  },
-  {
-    path: "/myPost",
-    name: "我的文章",
-    component: () => import("../views/post/MyPostView.vue"),
-    meta: {
-      access: ACCESS_ENUM.USER,
     },
   },
   {

@@ -46,6 +46,24 @@ userAddRequest: UserAddRequest,
     }
 
     /**
+     * dailyCheck
+     * @returns BaseResponse_boolean_ OK
+     * @returns any Created
+     * @throws ApiError
+     */
+    public static dailyCheckUsingPost(): CancelablePromise<BaseResponse_boolean_ | any> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/api/user/daily',
+            errors: {
+                401: `Unauthorized`,
+                403: `Forbidden`,
+                404: `Not Found`,
+            },
+        });
+    }
+
+    /**
      * deleteUser
      * @param deleteRequest deleteRequest
      * @returns BaseResponse_boolean_ OK
@@ -121,6 +139,32 @@ id?: number,
             url: '/api/user/get/vo',
             query: {
                 'id': id,
+            },
+            errors: {
+                401: `Unauthorized`,
+                403: `Forbidden`,
+                404: `Not Found`,
+            },
+        });
+    }
+
+    /**
+     * gitee
+     * @param code code
+     * @param state state
+     * @returns BaseResponse_LoginUserVO_ OK
+     * @throws ApiError
+     */
+    public static giteeUsingGet(
+code?: string,
+state?: string,
+): CancelablePromise<BaseResponse_LoginUserVO_> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/api/user/gitee',
+            query: {
+                'code': code,
+                'state': state,
             },
             errors: {
                 401: `Unauthorized`,

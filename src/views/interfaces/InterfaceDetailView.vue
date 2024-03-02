@@ -1,6 +1,5 @@
 <template>
   <div class="interfaceDetail">
-    <a-image width="200" src="https://t.mwm.moe/moez/" />
     <a-descriptions
       style="margin-top: 20px"
       :data="data"
@@ -11,15 +10,13 @@
       在线调用
     </a-button>
     <a-modal v-model:visible="visible" @ok="handleOk">
-      <template #title>调用结果</template>
-      <div>
-        <a-image
-          width="200"
-          :src="pic"
-          style="display: block; margin: 0 auto"
-        />
-        图片地址：{{ pic }}
-      </div>
+      <template #title>在线调用</template>
+      <a-card :style="{ width: '360px' }" :title="data[0].value">
+        <template #extra>
+          <a-button @click="handleInvoke">点击调用</a-button>
+        </template>
+        {{ invokeRes }}
+      </a-card>
     </a-modal>
   </div>
 </template>
@@ -29,20 +26,21 @@ import { InterfaceInfoControllerService } from "../../../generated";
 import { useRoute } from "vue-router";
 
 const visible = ref(false);
-const pic = ref("");
 const route = useRoute();
 
 const handleClick = () => {
   visible.value = true;
-  InterfaceInfoControllerService.invokeInterfaceUsingPost({
-    id: route.query.id as any,
-  }).then((res) => {
-    pic.value = res.data as string;
-    loadData();
-  });
 };
 const handleOk = () => {
   visible.value = false;
+};
+const invokeRes = ref();
+const handleInvoke = () => {
+  InterfaceInfoControllerService.invokeInterfaceUsingPost({
+    id: route.query.id as any,
+  }).then((res) => {
+    invokeRes.value = res.data;
+  });
 };
 
 const data = ref([
@@ -125,7 +123,7 @@ onMounted(() => {
 <style scoped>
 .interfaceDetail {
   text-align: center;
-  width: 30%;
+  width: 70%;
   margin: 0 auto;
 }
 </style>

@@ -14,7 +14,13 @@
               overflow: 'hidden',
             }"
           >
-            <v-chart class="chart" :option="card.chartData" autoresize />
+            <v-chart
+              v-if="card.status === 'succeed'"
+              class="chart"
+              :option="card.chartData"
+              autoresize
+            />
+            <a-empty v-else></a-empty>
           </div>
         </template>
         <a-card-meta title="分析结果">
